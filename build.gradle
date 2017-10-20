@@ -40,6 +40,8 @@ dependencies {
     compile 'com.google.inject:guice:4.1.0'
     compile 'ch.qos.logback:logback-classic:1.2.3'
 
+    compile 'edu.stanford.nlp:stanford-corenlp:3.7.0'
+
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
 }
