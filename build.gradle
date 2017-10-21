@@ -32,6 +32,10 @@ sourceSets {
         java.srcDirs = ['src/']
         resources.srcDirs = ['src/']
     }
+    test {
+        java.srcDirs = ['test/']
+        resources.srcDirs = ['src/']
+    }
 }
 
 dependencies {
@@ -41,10 +45,12 @@ dependencies {
     compile 'ch.qos.logback:logback-classic:1.2.3'
     compile 'commons-cli:commons-cli:1.4'
 
+
     compile 'edu.stanford.nlp:stanford-corenlp:3.7.0'
 
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
+    testCompile 'org.easymock:easymock:3.5'
 }
 
 // Define the main class for the application

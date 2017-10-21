@@ -9,7 +9,8 @@ public class BioText2KBMain {
     @Inject
     private Logger LOGGER;
 
-    public void start(){
+    public String start(){
         LOGGER.info("whatever");
+        return "whatever";
     }
 }
