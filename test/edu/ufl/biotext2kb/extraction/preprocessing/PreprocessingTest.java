@@ -28,6 +28,10 @@ public class PreprocessingTest {
     public void testSentenceSegmentation() {
 
         ImmutableSet<String> sentences = preprocessing.sentenceSegmentation(mockAbstractText);
+
+        for(String sentence:sentences){
+            LOG.info(sentence);
+        }
     }
 
 }
