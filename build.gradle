@@ -34,7 +34,7 @@ sourceSets {
     }
     test {
         java.srcDirs = ['test/']
-        resources.srcDirs = ['src/']
+        resources.srcDirs = ['src/','test/']
     }
 }
 
@@ -44,6 +44,7 @@ dependencies {
     compile 'com.google.inject:guice:4.1.0'
     compile 'ch.qos.logback:logback-classic:1.2.3'
     compile 'commons-cli:commons-cli:1.4'
+    compile 'com.squareup.okhttp3:okhttp:3.9.0'
 
 
     compile 'edu.stanford.nlp:stanford-corenlp:3.7.0'

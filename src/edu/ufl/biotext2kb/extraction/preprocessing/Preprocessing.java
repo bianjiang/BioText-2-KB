@@ -1,9 +1,9 @@
 package edu.ufl.biotext2kb.extraction.preprocessing;
 
+import com.google.common.collect.ImmutableSet;
 import com.google.inject.AbstractModule;
-import com.google.inject.Inject;
+import org.slf4j.LoggerFactory;
 
-import java.util.logging.Logger;
 
 public class Preprocessing extends AbstractModule {
 
@@ -12,11 +12,12 @@ public class Preprocessing extends AbstractModule {
 
     }
 
-    @Inject
-    private Logger LOGGER;
+    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(Preprocessing.class);
 
-    public void sentenceSegmentation(String text) {
-        LOGGER.info("here");
+
+    public ImmutableSet<String> sentenceSegmentation(String text) {
+
+        return null;
     }
 
 }
