@@ -18,10 +18,10 @@ import javax.xml.xpath.XPathFactory;
 import java.io.IOException;
 import java.io.StringReader;
 
-public class PubMed  extends AbstractModule {
+public class PubMed extends AbstractModule {
 
     @Override
-    protected void configure(){
+    protected void configure() {
 
     }
 
@@ -39,7 +39,7 @@ public class PubMed  extends AbstractModule {
                 .host("eutils.ncbi.nlm.nih.gov").addPathSegments("entrez/eutils/");
     }
 
-    public String fetchAbstractTextByPMID (String pmid) throws IOException {
+    public String fetchAbstractTextByPMID(String pmid) throws IOException {
 
         HttpUrl url = newBaseHttpUrlBuilder()
                 .addPathSegment("efetch.fcgi")
@@ -63,10 +63,9 @@ public class PubMed  extends AbstractModule {
 
             return getAbstractText(response.body().string());
         }
-
     }
 
-    private String getAbstractText (String xmlString) {
+    private String getAbstractText(String xmlString) {
 
         try {
             DocumentBuilderFactory domFactory =
@@ -78,11 +77,11 @@ public class PubMed  extends AbstractModule {
             // XPath Query for showing all nodes value
             XPathExpression expr = xpath.compile("//Article/Abstract/AbstractText/text()");
 
-            Node result = (Node)expr.evaluate(doc, XPathConstants.NODE);
+            Node result = (Node) expr.evaluate(doc, XPathConstants.NODE);
 
             return result.getNodeValue();
 
-        }catch(Exception ex){
+        } catch (Exception ex) {
             return null;
         }
     }
