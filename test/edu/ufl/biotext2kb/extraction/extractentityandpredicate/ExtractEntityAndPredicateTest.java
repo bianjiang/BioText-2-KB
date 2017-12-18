@@ -1,5 +1,6 @@
 package edu.ufl.biotext2kb.extraction.extractentityandpredicate;
 
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import edu.ufl.biotext2kb.BioText2KBUtils;
@@ -15,9 +16,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -28,15 +27,15 @@ public class ExtractEntityAndPredicateTest {
     private static final Logger LOG = LoggerFactory.getLogger(ExtractEntityAndPredicateTest.class);
 
     @BeforeClass
-    public static void loadTestSents(){
+    public static void loadTestSents() {
         try {
             File f = new File("data/Sentencesfrom23Abstracts.txt");
             br = new BufferedReader(new FileReader("data/Sentencesfrom23Abstracts.txt"));
             String line = null;
             ImmutableSet.Builder<String> sentencesTextBuilder = ImmutableSet.<String>builder();
 
-            while((line = br.readLine()) != null){
-                sentencesTextBuilder.add(line);
+            while ((line = br.readLine()) != null) {
+                sentencesTextBuilder.add(line.toLowerCase());
             }
 
             sampleSents = sentencesTextBuilder.build();
@@ -48,36 +47,89 @@ public class ExtractEntityAndPredicateTest {
     }
 
     @Before
-    public void createExtractor(){
+    public void createExtractor() {
         eep = new ExtractEntityAndPredicate("data/EntityDict.csv", "data/PredicateDict.csv");
     }
 
     @Test
-    public void testExtractFunc(){
-       for(String sent: sampleSents){
-           //res is from antonio code
-           String antonioRes = search_ent_pred(sent.toLowerCase());
-           ArrayList<String> res = new ArrayList<>();
-           String[] arr = antonioRes.split(";");
-           for(String each: arr){
-               for(String each1: each.split(",")){
-                   res.add(each1);
-               }
-           }
+    public void testExtractFunc() {
+        // create results from current implementation
+        ArrayList<ArrayList<String>> thisRess = new ArrayList<>();
+        ImmutableMap<String, HashMap<String, ArrayList<String>>> testRes = eep.entitiesPredicatesExtraction(sampleSents);
 
-           //res1 is from this new implementation
-           ArrayList<String> res1 = new ArrayList<>();
-           
+        /**
+         *   this is also a example how to flat the data generated from entitiesPredicatesExtraction function
+         *   TODO change this into a public function and add it to the ExtractEntityAndPredicate class for others easy to get the results?
+         */
+        // using iterator to loop the map
+        for(Iterator<Map.Entry<String, HashMap<String, ArrayList<String>>>> itr = testRes.entrySet().iterator(); itr.hasNext();){
+            ArrayList<String> thisRes = new ArrayList<>();
+            //read in key-value pairs as Map.Entry
+            Map.Entry<String, HashMap<String, ArrayList<String>>> pairs = itr.next();
 
-           Assert.assertArrayEquals(res.toArray(), res1.toArray());
-       }
+            //get the value (another hashMap)
+            HashMap<String, ArrayList<String>> subRes = pairs.getValue();
+
+            //get entities
+            subRes.get("entities").forEach(x -> {
+                thisRes.add(x);
+            });
+
+            //get predicates
+            subRes.get("predicates").forEach(x -> {
+                thisRes.add(x);
+            });
+
+            thisRess.add(thisRes);
+
+            //avoid a ConcurrentModificationException
+//            itr.remove();
+        }
+
+        //create results from antonio implementation
+        ArrayList<ArrayList<String>> antonioRess = new ArrayList<>();
+        for (String sent : sampleSents) {
+            String antonioRes = search_ent_pred(sent.toLowerCase());
+            ArrayList<String> res = new ArrayList<>();
+            String[] arr = antonioRes.split(";");
+            for (String each : arr) {
+                for (String each1 : each.split(",")) {
+                    if(!each1.equals("")) {
+                        res.add(each1.trim());
+                    }
+                }
+            }
+            antonioRess.add(res);
+        }
+
+        //assert same results (assume antonio got the right output)
+
+        int count = antonioRess.size();
+        LOG.info(String.valueOf(count));
+        LOG.info(thisRess.size() + "");
+        for(ArrayList<String> alist: thisRess){
+            if(antonioRess.contains(alist)){
+                count--;
+            }
+
+            LOG.info(alist + "");
+        }
+
+        LOG.info("*********************************************************************************************************************");
+
+        for(ArrayList<String> slist: antonioRess){
+            LOG.info(slist + "");
+        }
+
+        LOG.info(count + "");
+        Assert.assertEquals(0, count);
     }
 
     @Test
-    public void testEncodingProblemInPubMedSents(){
+    public void testEncodingProblemInPubMedSents() {
         HashMap<String, Integer> testMap = new HashMap<>();
         int i = 0;
-        for(String each: sampleSents){
+        for (String each : sampleSents) {
             //System.out.println(each);
             testMap.put(each, i++);
         }
@@ -86,16 +138,16 @@ public class ExtractEntityAndPredicateTest {
     }
 
     @Test
-    public void testReadInDict(){
+    public void testReadInDict() {
 //        eep.getEntitiesSet().forEach(x -> {System.out.println(x);});
 //        eep.getPredicateSet().forEach(x ->{System.out.println(x);});
 
         int i = 20;
         Iterator<String> itr = eep.getPredicateSet().iterator();
-        while(itr.hasNext()){
-            if(i > 0)
+        while (itr.hasNext()) {
+            if (i > 0)
                 break;
-            else{
+            else {
                 String info = itr.next();
                 LOG.info(info);
                 Assert.assertTrue(info.length() > i);
@@ -108,7 +160,7 @@ public class ExtractEntityAndPredicateTest {
     }
 
     @Test
-    public void testReadCsv(){
+    public void testReadCsv() {
         String fileName = "data/EntityDict.csv";
         File f = new File(fileName);
         Assert.assertTrue(f.exists());
@@ -125,15 +177,15 @@ public class ExtractEntityAndPredicateTest {
     }
 
     @Test
-    public void testMatchEntityOrPredicateInSentences(){
+    public void testMatchEntityOrPredicateInSentences() {
         String testEx = "METHODS: In a case-cohort analysis nested within the Women's Health Initiative Observational Study, a prospective cohort of postmenopausal women, baseline plasma samples from 875 incident breast cancer case patients and 839 subcohort participants were tested for levels of seven adipokines, namely leptin, adiponectin, resistin, interleukin-6, tumor necrosis factor-α, hepatocyte growth factor, and plasminogen activator inhibitor-1, and for C-reactive protein (CRP), an inflammatory marker.\n";
         String antonioRes = search_ent_pred(testEx.toLowerCase());
         LOG.info(antonioRes);
         ArrayList<String> res = new ArrayList<>();
         String[] arr = antonioRes.split(";");
-        for(String each: arr){
-            for(String each1: each.split(",")){
-                res.add(each1);
+        for (String each : arr) {
+            for (String each1 : each.split(",")) {
+                res.add(each1.trim());
             }
         }
 
@@ -148,9 +200,9 @@ public class ExtractEntityAndPredicateTest {
         ArrayList<ImmutableSortedSet<String>> dicts = new ArrayList<>();
         dicts.add(eep.getEntitiesSet());
         dicts.add(eep.getPredicateSet());
-        for(ImmutableSortedSet<String> eachDict: dicts){
-            for(String each: eachDict){
-                if(s.contains(" " + each + " ")){
+        for (ImmutableSortedSet<String> eachDict : dicts) {
+            for (String each : eachDict) {
+                if (s.contains(" " + each + " ")) {
                     res1.add(each);
                     s = s.replace(" " + each + " ", " ");
                 }
@@ -161,7 +213,12 @@ public class ExtractEntityAndPredicateTest {
             LOG.info(x.toString());
         });
 
-        Assert.assertArrayEquals(res.toArray(), res1.toArray());
+        Assert.assertEquals(res.size(), res1.size());
+        for (int i = 0; i < res.size(); i++) {
+            Assert.assertTrue(res.get(i).equals(res1.get(i)));
+        }
+
+        Assert.assertTrue(Arrays.deepEquals(res.toArray(), res1.toArray()));
     }
 
     //Antonio method

@@ -82,7 +82,7 @@ public class ExtractEntityAndPredicate extends AbstractModule {
     private ArrayList<String> matchEntityOrPredicateInSentences(String line, boolean isEntity) {
         ImmutableSortedSet<String> dict = null;
         //TODO why there is a replace function here? should it be in the preprocess?
-        String nLine = " " + line.replace(" '", "'") + " ";
+        line = " " + line.replace(" '", "'") + " ";
 
         if (isEntity) {
             dict = this.entitiesSet;
@@ -94,9 +94,9 @@ public class ExtractEntityAndPredicate extends AbstractModule {
         ArrayList<String> instances = new ArrayList<>();
         for(String inDict: dict){
             String target = " " + inDict + " ";
-            if(nLine.contains(target)){
-                instances.add(target);
-                nLine = nLine.replace("target", " ");
+            if(line.contains(target)){
+                line = line.replace(target, " ");
+                instances.add(inDict);
             }
         }
 
@@ -123,12 +123,14 @@ public class ExtractEntityAndPredicate extends AbstractModule {
         });
 
         BufferedReader br = null;
+        String line;
         String word;
 
         try {
             br = new BufferedReader(new FileReader(fileName));
-            String line;
+
             while ((line = br.readLine()) != null) {
+                //the first field in the read-in csv file is entity or predicate
                 word = line.split(",")[0];
                 //remove the entity or predicate word in stop words list since we do not want to include them
                 if (!stopWords.contains(word)) {
