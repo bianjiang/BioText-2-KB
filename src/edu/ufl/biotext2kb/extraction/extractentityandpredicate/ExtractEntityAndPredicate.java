@@ -117,7 +117,7 @@ public class ExtractEntityAndPredicate extends AbstractModule {
             public int compare(String s1, String s2) {
                 if (s1.equals(s2)) return 0;
                 //use word length to sort
-                if (s1.length() > s2.length()) return -1;
+                if (s1.split(" ").length > s2.split(" ").length) return -1;
                 else return 1;
             }
         });
