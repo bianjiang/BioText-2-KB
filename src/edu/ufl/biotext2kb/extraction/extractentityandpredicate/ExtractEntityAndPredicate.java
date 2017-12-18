@@ -16,21 +16,21 @@ import java.util.*;
 public class ExtractEntityAndPredicate extends AbstractModule {
     private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(ExtractEntityAndPredicate.class);
 
-    private ImmutableSet<String> sents;
     private ImmutableSortedSet<String> entitiesSet;
     private ImmutableSortedSet<String> predicateSet;
 
     //TODO replace the stop-words below with  with dynamic detection implementation
     //*********************************************************************************************************************************************
-    static HashSet<String> stop_words_entities_ = new HashSet(Arrays.asList("normal","intake","intakes","known",
-            "preventing","has","have","influences","influence","identified","decreases","associated","associated with","not","acts","act",
-            "decrease","high","low","lower","higher","other","on","affect","affects","i","ii","iii","is","a","46","24","use","uses"
-            ,"targeting","or","25","be","part","parts","pre","light","novel","none","all","total","with","without","reported","half","benefits","benefit","changes","change",
-            "new","be","are","as","at","and","this","well","may","increase","share","related","high","associated","links","play","plays","help","helps"));
-    static HashSet<String> stop_words_predicates_ = new HashSet(Arrays.asList("under","now","well","while","ai","ua","'s","-"));
+    public static HashSet<String> stop_words_entities_ = new HashSet<>(Arrays.asList("normal", "intake", "intakes", "known",
+            "preventing", "has", "have", "influences", "influence", "identified", "decreases", "associated", "associated with", "not", "acts", "act",
+            "decrease", "high", "low", "lower", "higher", "other", "on", "affect", "affects", "i", "ii", "iii", "is", "a", "46", "24", "use", "uses"
+            , "targeting", "or", "25", "be", "part", "parts", "pre", "light", "novel", "none", "all", "total", "with", "without", "reported", "half", "benefits", "benefit", "changes", "change",
+            "new", "be", "are", "as", "at", "and", "this", "well", "may", "increase", "share", "related", "high", "associated", "links", "play", "plays", "help", "helps"));
+    public static HashSet<String> stop_words_predicates_ = new HashSet<>(Arrays.asList("under", "now", "well", "while", "ai", "ua", "'s", "-"));
     //*********************************************************************************************************************************************
 
-    public ExtractEntityAndPredicate(String entityFileName, String predicatefileName){
+
+    public ExtractEntityAndPredicate(String entityFileName, String predicatefileName) {
         this.entitiesSet = loadEntityOrPredicateSet(entityFileName, stop_words_entities_);
         this.predicateSet = loadEntityOrPredicateSet(predicatefileName, stop_words_predicates_);
     }
@@ -40,48 +40,85 @@ public class ExtractEntityAndPredicate extends AbstractModule {
      * The function will scan every sentence from the input and extract entities and predicates in each of them based on pre-defined dictionaries
      * The results are stored as a Map structure which can be easy to handle as a json
      * The key is the original sentence
-     * The value is a list of all the triples of entities and predicates extracted from the key sentence
+     * The value is a hashmap with keys as 'entities' and 'predicates' and lists of instances as values
+     * A example of returned map showed as follow in json format:
+     *  {
+     *      "I want to eat apple, you hates oranges":
+     *      {
+     *              entities: [I, you, apple, oranges],
+     *              predicates: [eat, hates]
+     *      }
+     * }
+     *
      * @param sents a set of sentences obtained from abstracts of PreMed publications
      * @return a Immutable map with entities-predicates pairs extracted from each sentences
      */
-    public ImmutableMap<String, ArrayList<HashSet<String>>> entityPredicatePairsExtraction(ImmutableSet<String> sents){
-        this.sents = sents;
+    public ImmutableMap<String, HashMap<String, ArrayList<String>>> entitiesPredicatesExtraction(ImmutableSet<String> sents) {
 
-        ImmutableMap.Builder<String, ArrayList<HashSet<String>>> entityPredicatePairs = ImmutableMap.builder();
+        ImmutableMap.Builder<String, HashMap<String, ArrayList<String>>> entityPredicatePairs = ImmutableMap.builder();
 
-        for(String eachSent: sents){
-            ArrayList<HashSet<String>> entityAndPredicateInOneSent = new ArrayList();
-            //extract the triple (entity, predicate, another entity)
+        for (String eachSent : sents) {
+            HashMap<String, ArrayList<String>> entityAndPredicateInOneSent = new HashMap<>();
 
-            //add each triple to a list
+            //extract entities from the current sentence
+            entityAndPredicateInOneSent.put("entities", matchEntityOrPredicateInSentences(eachSent, true));
 
-            //add the list of triples as value into hashmap with key as the sentence where these triples are extracted
+            //extract predicates from the current sentence
+            entityAndPredicateInOneSent.put("predicates", matchEntityOrPredicateInSentences(eachSent, false));
+
+            //add the sentence (K) with entities and predicates (V) in it to a map
             entityPredicatePairs.put(eachSent, entityAndPredicateInOneSent);
         }
 
         return entityPredicatePairs.build();
     }
 
-    private String matchEntityOrPredicateInSentences(String line){
 
-        return null;
+    /**
+     * @param line     each sentence from input
+     * @param isEntity if true return a list of all entities inside the sentence else return a list of all predicates in the sentence
+     * @return a list of instances that in the sentence and also matched in the entity or predicate dictionary
+     */
+    private ArrayList<String> matchEntityOrPredicateInSentences(String line, boolean isEntity) {
+        ImmutableSortedSet<String> dict = null;
+        //TODO why there is a replace function here? should it be in the preprocess?
+        String nLine = " " + line.replace(" '", "'") + " ";
+
+        if (isEntity) {
+            dict = this.entitiesSet;
+        } else {
+            dict = this.predicateSet;
+        }
+
+        //match instances from the dict in the sentence, try matching the longest one first then shorter one.
+        ArrayList<String> instances = new ArrayList<>();
+        for(String inDict: dict){
+            String target = " " + inDict + " ";
+            if(nLine.contains(target)){
+                instances.add(target);
+                nLine = nLine.replace("target", " ");
+            }
+        }
+
+        return instances;
     }
 
 
     /**
      * the function aims to read-in the predefined entities and predicates to help extract these from the sentences generated from pre-processing
+     *
      * @param fileName entity or predicate pre-extracted dictionary
      * @return a set of entities or predicates
      */
-    private ImmutableSortedSet<String> loadEntityOrPredicateSet(String fileName, HashSet<String> stopWords){
+    private ImmutableSortedSet<String> loadEntityOrPredicateSet(String fileName, HashSet<String> stopWords) {
         //sort all entities or predicates based on their length
-        SortedSet<String> entityOrPredicateDictBuilder = new TreeSet(new Comparator<String>() {
+        SortedSet<String> entityOrPredicateDictBuilder = new TreeSet<>(new Comparator<String>() {
             @Override
             public int compare(String s1, String s2) {
-                if(s1 == s2) return 0;
+                if (s1.equals(s2)) return 0;
                 //use word length to sort
-                if(s1.length() > s2.length()) return 1;
-                else return -1;
+                if (s1.length() > s2.length()) return -1;
+                else return 1;
             }
         });
 
@@ -91,10 +128,10 @@ public class ExtractEntityAndPredicate extends AbstractModule {
         try {
             br = new BufferedReader(new FileReader(fileName));
             String line;
-            while((line = br.readLine()) != null){
-                 word = line.split(",")[0];
+            while ((line = br.readLine()) != null) {
+                word = line.split(",")[0];
                 //remove the entity or predicate word in stop words list since we do not want to include them
-                if(!stopWords.contains(word)) {
+                if (!stopWords.contains(word)) {
                     entityOrPredicateDictBuilder.add(word);
                 }
             }
@@ -113,10 +150,11 @@ public class ExtractEntityAndPredicate extends AbstractModule {
 
     /**
      * The function aims to read in the data from csv file as a dataframe
+     *
      * @param fileName the csv file need to be loaded in
-     * @return dataframe created by reading in a csv file
+     * @return a dataframe created by reading in a csv file
      */
-    public DataFrame<Object> loadEntityOrPredicateDataFrame(String fileName){
+    public DataFrame<Object> loadEntityOrPredicateDataFrame(String fileName) {
         //this is df is equivalent to dataframe from pandas in python
         DataFrame<Object> df = null;
 
@@ -131,19 +169,17 @@ public class ExtractEntityAndPredicate extends AbstractModule {
 
 
     /**
-     *
      * @return entities set
      */
-    public ImmutableSet<String> getEntitiesSet() {
+    public ImmutableSortedSet<String> getEntitiesSet() {
         return entitiesSet;
     }
 
 
     /**
-     *
      * @return predicate Set
      */
-    public ImmutableSet<String> getPredicateSet() {
+    public ImmutableSortedSet<String> getPredicateSet() {
         return predicateSet;
     }
 
