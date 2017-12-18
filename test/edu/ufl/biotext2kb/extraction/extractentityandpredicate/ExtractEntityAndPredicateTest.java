@@ -76,7 +76,8 @@ public class ExtractEntityAndPredicateTest {
 
             //get predicates
             subRes.get("predicates").forEach(x -> {
-                thisRes.add(x);
+                if (!thisRes.contains(x))
+                    thisRes.add(x);
             });
 
             thisRess.add(thisRes);
@@ -122,6 +123,12 @@ public class ExtractEntityAndPredicateTest {
 
         LOG.info(count + "");
 //        Assert.assertEquals(0, count);
+    }
+
+    @Test
+    public void testImmutableOfResult(){
+        ImmutableMap<String, HashMap<String, ArrayList<String>>> testRes = eep.entitiesPredicatesExtraction(sampleSents);
+
     }
 
     @Test
@@ -220,6 +227,13 @@ public class ExtractEntityAndPredicateTest {
         Assert.assertTrue(Arrays.deepEquals(res.toArray(), res1.toArray()));
     }
 
+    @Test
+    public void testSet(){
+        HashSet<String> s = new HashSet<>();
+        changeSet(s);
+        System.out.println(s);
+    }
+
     //Antonio method
     private String search_ent_pred(String line) {
 
@@ -267,4 +281,8 @@ public class ExtractEntityAndPredicateTest {
         return aux_ent + " ; " + aux_pred;
     }
 
+    //for test
+    private void changeSet(HashSet<String> s){
+        s.add("test1");
+    }
 }

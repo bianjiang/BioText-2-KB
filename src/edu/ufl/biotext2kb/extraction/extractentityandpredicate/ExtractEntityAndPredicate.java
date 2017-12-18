@@ -58,12 +58,16 @@ public class ExtractEntityAndPredicate extends AbstractModule {
         ImmutableMap.Builder<String, HashMap<String, ArrayList<String>>> entityPredicatePairs = ImmutableMap.builder();
 
         for (String eachSent : sents) {
+            //TODO why there is a replace function here? should it be in the preprocess?
+            eachSent = " " + eachSent.replace(" '", "'") + " ";
+
             HashMap<String, ArrayList<String>> entityAndPredicateInOneSent = new HashMap<>();
 
             //extract entities from the current sentence
             entityAndPredicateInOneSent.put("entities", matchEntityOrPredicateInSentences(eachSent, true));
 
             //extract predicates from the current sentence
+            //TODO bug here, eachSent not contain the modification from previous entity function
             entityAndPredicateInOneSent.put("predicates", matchEntityOrPredicateInSentences(eachSent, false));
 
             //add the sentence (K) with entities and predicates (V) in it to a map
@@ -81,8 +85,6 @@ public class ExtractEntityAndPredicate extends AbstractModule {
      */
     private ArrayList<String> matchEntityOrPredicateInSentences(String line, boolean isEntity) {
         ImmutableSortedSet<String> dict = null;
-        //TODO why there is a replace function here? should it be in the preprocess?
-        line = " " + line.replace(" '", "'") + " ";
 
         if (isEntity) {
             dict = this.entitiesSet;
