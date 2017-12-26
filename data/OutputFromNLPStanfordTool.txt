@@ -1,0 +1,217 @@
+a vegan diet has documented clinical efficacy in rheumatoid arthritis .
+Acting on hepatocytes , glucagon promotes -LRB- and insulin inhibits -RRB- cAMP-dependent mechanisms that down-regulate lipogenic enzymes and cholesterol synthesis , while up-regulating hepatic LDL receptors and production of the IGF-I antagonist IGFBP-1 .
+Additionally , the relatively low essential amino acid content of some vegan diets may decrease hepatic IGF-I synthesis .
+Amino acids modulate the secretion of both insulin and glucagon .
+An unnecessarily high intake of essential amino acids -- either in the absolute sense or relative to total dietary protein -- may prove to be as grave a risk factor for ` Western ' degenerative diseases as is excessive fat intake .
+By altering the glucagon/insulin balance , it is conceivable that supplemental intakes of key non-essential amino acids could enable omnivores to enjoy some of the health advantages of a vegan diet .
+conversely , the high IGF-I activity associated with heavy ingestion of animal products may be largely responsible for the epidemic of Western cancers in wealthy societies .
+In fact , vegans tend to have low serum lipids , lean physiques , shorter stature , later puberty , and decreased risk for certain prominent Western cancers .
+Increased phytochemical intake is also likely to contribute to the reduction of cancer risk in vegans .
+Low-fat vegan diets may be especially protective in regard to cancers linked to insulin resistance -- namely , breast and colon cancer -- as well as prostate cancer .
+Regression of coronary stenoses has been documented during low-fat vegan diets coupled with exercise training .
+Risk of many other degenerative disorders may be decreased in vegans , although reduced growth factor activity may be responsible for an increased risk of hemorrhagic stroke .
+Soy protein , as well as many other vegan proteins , are higher in non-essential amino acids than most animal-derived food proteins , and as a result should preferentially favor glucagon production .
+such regimens also tend to markedly improve diabetic control and lower elevated blood pressure .
+the composition of dietary protein therefore has the potential to influence the balance of glucagon and insulin activity .
+The insulin-sensitizing properties of many vegan diets -- high in fiber , low in saturated fat -- should amplify these effects by down-regulating insulin secretion .
+The latter effect should impede cancer induction -LRB- as is seen in animal studies with soy protein -RRB- , lessen neutrophil-mediated inflammatory damage , and slow growth and maturation in children .
+Thus , diets featuring vegan proteins can be expected to lower elevated serum lipid levels , promote weight loss , and decrease circulating IGF-I activity .
+A nested case/control study in a sample of 410 obese school children aged 10 to 16 years -LRB- 57 % males -RRB- was performed .
+A significantly increased risk for MS was only found when PNI was defined according to Lagos 's Table and MS was defined using IDF criteria .
+Having a PNI > p90 , however , showed a trend towards a reduced risk of MS , which only reached significance using Lagos 's Table and Cook 's Criteria .
+Neonatal malnutrition defined by birth weight -LRB- BW -RRB- is a risk factor for obesity and cardio-metabolic diseases in adults .
+Neonatal ponderal index -LRB- NPI -RRB- may have better diagnostic value than BW to establish nutritional status .
+The dichotomous response variable was the presence of MS defined as International Diabetes Federation -LRB- IDF -RRB- or Cook 's criteria .
+The exposure variable was having NPI < percentile -LRB- p -RRB- 10 .
+The frequency of MS was 36 and 39 % according to the IDF and Cook criteria , respectively .
+The proportion of children with neonatal malnutrition exceeded 20 % .
+To determine the effect of neonatal nutritional status , established by the three NPI curves available in Chile , on the risk of Metabolic Syndrome -LRB- MS -RRB- in obese school children .
+Doctors are going to play a major role as they are being called on to adapt their practices to confront it .
+In addition , accurate anthropometric measurements should be performed for use by pediatricians , who should focus efforts on preventing obesity during infancy and childhood .
+In particular , nutrition seems to be at the core of obesity in children .
+In view of all this , it would be advisable that food science be given higher relevance in medical education .
+Nutrition plays such a pivotal role that it may be considered a valuable treatment strategy for multiple pediatric conditions , including celiac disease , Crohn 's disease , short bowel syndrome , galactosemia , congenital deficiency of urea cycle enzymes .
+Overweight/obesity is a growing epidemic in the Western world and a leading cause of morbidity and mortality , mainly from cardiovascular disease .
+Public health programs of primary prevention should be stimulated and recommended , with the aim of promoting diet and lifestyle changes in the general population .
+The ascending trend of this phenomenon in pediatric age , with inherent healthcare implications , was already reported in epidemiological studies of the mid '90s .
+Obesity and overweight , often present in FM patients , are related to the severity of FM worsening the quality of life in terms of higher pain , fatigue , worsened sleep quality and higher incidence of mood disorders .
+Among non-pharmacological treatment , nutrition is a promising tool for FM patients .
+Different medical treatments are used to treat fibromyalgia and the recent guidelines suggest that the optimal treatment consists in a multidisciplinary approach with a combination of pharmacological and non-pharmacological treatment modalities .
+Fibromyalgia syndrome -LRB- FM -RRB- is a chronic , generalised pain condition usually accompanied by several associated symptoms , such as fatigue , sleep disturbance , headache , irritable bowel syndrome and mood disorders .
+In summary , this review reveals the potential benefit of specific dietary interventions as non-pharmacological tools as part of a multidisciplinary treatment for FM patients .
+Moreover , it seems reasonable to eliminate some foods from the diet of FM patients , for example excitotoxins .
+Non-coeliac gluten sensitivity is increasingly recognised as a frequent condition with similar manifestations which overlap with those of FM .
+Nutritional deficiencies have been described in FM patients and the benefits of specific diet and nutritional supplementation are shown .
+The aim of this review is to update the present knowledge about fibromyalgia and nutrition by means of a systematic search performed on Medline from January 2000 to December 2014 .
+The elimination of gluten from the diet of FM patients is recently becoming a potential dietary intervention for clinical improvement .
+Weight control is thus an effective tool to improve the symptoms .
+The incidence of cancer was higher in patients with colorectal adenoma and metabolic syndrome .
+Another 1,500 patients undergoing screening colonoscopy were prospectively analyzed : 134 patients with metabolic syndrome and colorectal adenoma were compared against a group of 108 patients with colorectal adenoma without metabolic syndrome to assess the prevalence of cancer .
+Associated liver steatosis is a significant risk factor for colorectal cancer .
+Associated obesity and liver steatosis were the only factors with independent statistical value .
+Data were analyzed from March to June 2011 .
+Metabolic syndrome has been identified as a risk factor for colorectal cancer and adenoma .
+Metabolic syndrome is a risk factor for adenoma and cancer degeneration when obesity is present .
+Ninety patients with metabolic syndrome were prospectively compared against a matched population without the syndrome to assess the prevalence of colorectal adenoma .
+The aim of our study was to assess the risk of colorectal cancer and adenoma in an adult Italian population with metabolic syndrome .
+The prevalence of colorectal adenoma was twice as high in patients with metabolic syndrome .
+The study was performed from January 2008 until December 2010 .
+Although rapamycin was originally developed as an inhibitor of T cell proliferation for preventing organ transplant rejection , its molecular target , mTOR , has been subsequently identified as a central regulator of metabolic cues that drive lineage specification in the immune system .
+Owing to oxidative stress , the activation of mTORC1 has emerged as a central pathway for the pathogenesis of systemic lupus erythematosus and other autoimmune diseases .
+Paradoxically , mTORC1 has also been identified as a mediator of the Warburg effect that allows cell survival under hypoxia .
+Rapamycin and new classes of mTOR inhibitors are being developed to block not only transplant rejection and autoimmunity but also to treat obesity and various forms of cancer .
+The mechanistic target of rapamycin -LRB- mTOR -RRB- is a ubiquitous serine/threonine kinase , which plays pivotal roles in integrating growth signals on a cellular level .
+Through preventing these diseases , personalized mTOR blockade holds promise to extend life span .
+To support proliferation and survival under stress , two interacting complexes that harbor mTOR , mTORC1 and mTORC2 , promote the transcription of genes involved in carbohydrate metabolism and lipogenesis , enhance protein translation , and inhibit autophagy .
+This review will discuss the contribution of AGEs to the cancer phenotype , with a particular emphasis on their biologic links with the socioeconomic and environmental risk factors that drive cancer disparity .
+Advanced glycation end-products -LRB- AGE -RRB- are reactive metabolites produced as a by-product of sugar metabolism .
+Critically , AGE accumulation is also directly affected by our lifestyle choices and shows a race-specific , tumor-dependent pattern of accumulation in cancer patients .
+Failure to remove these highly reactive metabolites can lead to protein damage , aberrant cell signaling , increased stress responses , and decreased genetic fidelity .
+Given the potential benefits of lifestyle changes and the potential biologic role of AGEs in promoting cancer , opportunities exist for collaborations affecting basic , translational , epidemiologic , and cancer prevention initiatives .
+Low income , poor diet , obesity , and a lack of exercise are interrelated lifestyle factors that can profoundly alter our biologic make up to increase cancer risk , growth , and development .
+We recently reported a potential mechanistic link between carbohydrate-derived metabolites and cancer , which may provide a biologic consequence of lifestyle that can directly affect tumor biology .
+CONCLUSION : This study showed that a high BMI at time of prostate cancer diagnosis was associated with increased overall mortality .
+Additionally , men with a low BMI -LRB- < 22.5 kg/m2 -RRB- , had a statistically significant increased risk of prostate cancer specific mortality -LRB- HR :1.33 , 95 % CI : 1.02-1 .74 -RRB- and overall mortality -LRB- HR :1.36 , 95 % CI : 1.11-1 .67 -RRB- compared to the reference .
+After 11 years of follow up via linkage to the population-based cause of death registry , we identified 1,161 -LRB- 37 % -RRB- deaths off which 690 -LRB- 59 % -RRB- were due to prostate cancer .
+BACKGROUND : Body Mass index -LRB- BMI -RRB- has been shown to affect risk and mortality of several cancers .
+However , this effect disappeared when men who died within the first two years of follow-up were excluded from the analyses while the increased risk of prostate cancer specific mortality and overall mortality remained statistically significant for men with a BMI > = 27.5 kg/m2 -LRB- HR :1.44 , 95 % CI : 1.09-1 .90 and HR : 1.33 , 95 % CI : 1.09-1 .63 , respectively -RRB- .
+METHODS : BMI was analyzed both as a continuous variable and categorized into four groups based on the observed distribution in the cohort -LRB- BMI < 22.5 , 22.5 < 25 , 25 < 27.5 and > = 27.5 kg/m2 -RRB- .
+OBJECTIVE : To study the associations between BMI at time of prostate cancer diagnosis and prostate cancer specific and overall mortality .
+Previous studies of pre-diagnostic BMI have found an increased risk of prostate cancer mortality in obese patients .
+Prostate cancer and obesity are major public health concerns for middle-aged and older men .
+RESULTS : High BMI -LRB- BMI > = 27.5 kg/m2 -RRB- was associated with a statistically significant increased risk of prostate cancer specific mortality -LRB- HR :1.44 , 95 % CI : 1.09-1 .90 -RRB- and overall mortality -LRB- HR :1.33 , 95 % CI : 1.09-1 .63 -RRB- compared to the reference group -LRB- BMI 22.5 < 25 kg/m2 -RRB- .
+The association between BMI and mortality was assessed using stratified Cox proportional hazards models and by fitting regression splines for dose response analysis in 3,161 men diagnosed with prostate cancer .
+all P < .001 -RRB- .
+Obesity -LRB- body mass index > = 30 kg/m -LRB- 2 -RRB- -RRB- was not found to be associated with OS , but appeared to modify the relationships observed with IL-8 and LDH , which were associated with a significant 4-fold and 5-fold risk of death , respectively , in obese patients compared with a 2-fold risk of death in nonobese patients -LRB- P for interaction of .06 and .04 , respectively -RRB- .
+BACKGROUND : Obesity is strongly linked with chronic systemic inflammation , and each has been linked with disease progression and survival in patients with colorectal cancer -LRB- CRC -RRB- .
+CONCLUSIONS : Although obesity itself was not found to be independently associated with survival in patients with mCRC , the adverse prognostic significance of LDH and IL-8 was found to be enhanced in obese patients .
+Cut points for cytokines were determined by restricted cubic spline regression .
+METHODS : In 242 chemotherapy-naive patients with mCRC , the authors measured a multiplex cytokine panel and abstracted clinicopathological features , height , and weight from medical records .
+Overall survival -LRB- OS -RRB- was calculated from the date of mCRC diagnosis until the date of death from any cause and evaluated by Kaplan-Meier analysis and multivariable Cox proportional hazards regression models .
+RESULTS : In multivariable models , elevated interleukin -LRB- IL -RRB- -8 , IL-2 receptor alpha , and lactate dehydrogenase -LRB- LDH -RRB- emerged as significant predictors of poor OS -LRB- hazard ratio -LSB- HR -RSB- and 95 % confidence interval -LSB- 95 % CI -RSB- for above vs below the -LRB- referent -RRB- knot point : 2.5 -LSB- 95 % CI , 1.7-3 .7 -RSB- , 1.9 -LSB- 95 % CI , 1.3-2 .7 -RSB- , and 2.2 -LSB- 95 % CI , 1.6-3 .1 -RSB- , respectively .
+Similar results emerged from joint effects analysis , in which obese patients with high IL-8 -LRB- or LDH -RRB- experienced the highest risk of death .
+The authors investigated the joint prognostic effects of obesity and circulating cytokines in patients with metastatic CRC -LRB- mCRC -RRB- , an understudied patient group .
+Among premenopausal women , a number of epidemiological studies in Western populations suggested a weak inverse association between BMI and breast cancer risk .
+After menopause , adipose tissue is a major source of estrogen .
+Conversely , there exists substantial evidence for a statistically significant positive association between body weight and breast cancer risk among postmenopausal women .
+Further studies are needed to investigate the association between BMI and breast cancer risk , considering the role of body fat in the development of mammary glands .
+Numerous epidemiological studies , although not all , in Western countries have reported a possible differential impact of BMI on breast cancer risk in women of various lifestages .
+Special attention should be paid to women in their twenties and/or during their lactation periods when the development of normal mammary glands is significant .
+The cumulative exposure to estrogen throughout a woman 's life is one of the significant risk factors for breast cancer .
+Therefore , an increase in body fat after menopause is one of the possible explanations for the positive association of body weight with the development of breast cancer .
+To evaluate the impact of body weight on the risk of breast cancer , we need to consider the role of adipose tissue in the development and differentiation of normal mammary glands .
+Endometrial biopsy results : proliferative -LRB- 13/30 ; 43 % -RRB- , insufficient -LRB- 8/30 ; 27 % -RRB- , secretory -LRB- 6/30 ; 20 % -RRB- and hyperplasia -LRB- 3/30 ; 10 % -1 complex atypical , 2 simple -RRB- .
+QOL data showed significant improvement in physical component scores -LRB- PCS means 33.9 vs. 47.2 before/after surgery ; p < 0.001 -RRB- .
+Twenty women underwent metabolic analysis which demonstrated significantly improved glucose homeostasis , improved insulin responsiveness , and free fatty acid levels .
+CONCLUSIONS : Bariatric surgery is accompanied by an improved physical quality of life as well as beneficial changes in glucose homeostasis , insulin responsiveness , and inflammation to a greater extent than the hormonal milieu .
+Demographic and clinicopathologic data , serum , and endometrium -LRB- if no prior hysterectomy -RRB- were collected preoperatively and serum collected postoperatively .
+METHODS : Women undergoing bariatric surgery were enrolled .
+Most steroid hormones were not significantly impacted with the exception of decreased DHEAS and 4-androsten metabolites .
+OBJECTIVES : The study objectives were to determine baseline endometrial histology in morbidly obese women undergoing bariatric surgery and to assess the surgical intervention 's impact on serum metabolic parameters , quality of life -LRB- QOL -RRB- , and weight .
+RESULTS : Mean age of the 71 women enrolled was 44.2 years , mean body mass index -LRB- BMI -RRB- was 50.9 kg/m -LRB- 2 -RRB- , and mean weight loss was 45.7 kg .
+Serum global biochemical data were assessed pre/postoperatively .
+Significant perturbations in tryptophan , phenylalanine and heme metabolism suggested decreased inflammation and alterations in the intestinal microbiome .
+The potential cancer protective effects of bariatric surgery may be due to other mechanisms other than simply hormonal changes .
+Welch 's two sample t-tests and paired t-tests were used to identify significant differences .
+BMI was defined according to the National Institutes of Health 's categorizations .
+CONCLUSIONS : In this cohort of women undergoing SCS for recurrent ovarian cancer , BMI significantly and independently correlated with overall survival .
+In a multivariate analysis , BMI was an independent predictor of survival -LRB- p = 0.02 -RRB- .
+median survival was undetermined -LRB- greater than 50 months -RRB- , 46 months , 38 months , and 34 months , respectively -LRB- p = 0.04 -RRB- .
+METHODS : We performed a review of patients undergoing SCS for recurrent epithelial ovarian or peritoneal cancer between 1997 and 2012 .
+OBJECTIVES : Obesity may negatively influence tumor biology in women with epithelial ovarian cancers .
+Overall , 90 patients underwent optimal resection and BMI did not correlate with ability to perform optimal SCS -LRB- p = 0.25 -RRB- .
+RESULTS : We identified 104 patients ; 2 were underweight , 46 were of ideal body weight , 32 were overweight , and 24 were obese .
+This observation suggests an effect of excess weight on tumor biology and/or response to treatment that is prevalent throughout the disease course .
+To date , only body mass indices -LRB- BMI -RRB- determined at the time of diagnosis have correlated with clinical outcome .
+We hypothesized that obesity negatively affects survival throughout the disease course , and sought to determine the prognostic role of BMI at the time of secondary cytoreductive surgery -LRB- SCS -RRB- for recurrent ovarian cancer .
+We retrospectively reviewed data which were analyzed using Fisher 's exact test , Kaplan-Meier survival , and Cox regression analysis .
+When examining BMI strata -LRB- underweight , ideal , overweight , and obese -RRB- , we observed a statistical trend between increasing BMI and poor outcome .
+CS-MR over-estimated IHF in the upper range .
+In 35 patients undergoing resection for colorectal cancer metastases , we measured : CT-derived subcutaneous and visceral adipose tissue volumes , Homeostasis Model Assessment of Insulin Resistance -LRB- HOMA-IR -RRB- , fasting serum adiponectin , leptin and fetuin-A .
+BACKGROUND : High intra-hepatic fat -LRB- IHF -RRB- content is associated with insulin resistance , visceral adiposity , and increased morbidity and mortality following liver resection .
+CONCLUSIONS : Our findings show IHF is associated with measures of insulin resistance , but not measures of visceral adiposity .
+However , in clinical practice , IHF is assessed indirectly by pre-operative imaging -LSB- for example , chemical-shift magnetic resonance -LRB- CS-MR -RRB- -RSB- .
+Larger studies are indicated to test whether a correction of imaging-derived IHF estimates is valid .
+METHODS : A reproducible method for quantification of D-IHF using 7 histology slides -LRB- inter - and intra-rater concordance : 0.97 and 0.98 -RRB- was developed .
+MR-derived IHF correlated with D-IHF -LRB- rho : 0.626 ; p = 0.0001 -RRB- , but levels of agreement deviated in upper range values -LRB- CS-MR over-estimated IHF : regression versus zero , p = 0.009 -RRB- .
+RESULTS : The multivariate linear regression models showed that D-IHF was best predicted by HOMA-IR -LRB- Beta coefficient -LRB- per doubling -RRB- : 2.410 , 95 % CI : 1.093 , 5.313 -RRB- and adiponectin -LRB- β -LRB- per doubling -RRB- : 0.197 , 95 % CI : 0.058 , 0.667 -RRB- , but not by anthropometrics .
+this could be adjusted for by a correction factor -LRB- CF : 0.7816 -RRB- .
+We estimated relative IHF using CS-MR and developed prediction models for IHF using a factor-clustered approach .
+We used the opportunity in patients undergoing liver resection to quantify IHF by digital histology -LRB- D-IHF -RRB- and relate this to CT-derived anthropometrics , insulin-related serum biomarkers , and IHF estimated by CS-MR .
+In this review we discuss the current epidemiology , basic science , and clinical data that link obesity , diabetes , and cancer and how treating obesity and type 2 diabetes could also reduce cancer risk and improve outcomes .
+Intentional weight loss may protect against cancer development , and therapies for diabetes may prove to be effective adjuvant agents in reducing cancer progression .
+Multiple factors potentially contribute to the progression of cancer in obesity and type 2 diabetes , including hyperinsulinemia and insulin-like growth factor I , hyperglycemia , dyslipidemia , adipokines and cytokines , and the gut microbiome .
+Obesity and type 2 diabetes are becoming increasingly prevalent worldwide , and both are associated with an increased incidence and mortality from many cancers .
+The metabolic abnormalities associated with type 2 diabetes develop many years before the onset of diabetes and , therefore , may be contributing to cancer risk before individuals are aware that they are at risk .
+These metabolic changes may contribute directly or indirectly to cancer progression .
+Benefits of dietary moderation when on a Mediterranean diet type -LRB- MD -RRB- have been known for well over half a century .
+Benefits of MD in preventing and reducing cardiovascular disorders -LRB- CVD -RRB- , known before , have been strongly confirmed .
+In the past , there has been a vigorous renewal of interest in preventive potential of MD. .
+This review is unique , by focusing on the very recent confirmatory data on the MD , all published within the first half of 2014 .
+While there is little doubt regarding potential benefit of MD for obesity , diabetes type II , metabolic syndrome and fatty liver , critical evaluation has to be aimed at reported benefits of MD in such widely metabolic diverse disorders as cancer , pulmonary disease and cognition defects , including Alzheimer disease -LRB- Ref .
+20 -RRB- .
+Bivariate and multivariate analyses were conducted to investigate the relationships between obesity , as measured by body mass index -LRB- BMI -RRB- at the time of hysterectomy and tumor features including LVI .
+In multivariate analyses , higher BMI was independently associated with younger age at diagnosis -LRB- odd ratio -LRB- OR -RRB- = 0.97 , 95 % confidence interval -LRB- CI -RRB- = 0.96-9 .97 -RRB- and the presence of lower tumor FIGO grade -LRB- OR = 0.98 , 95 % CI = 0.97-0 .99 -RRB- .
+In other disease sites , it has been reported that obesity and LVI are strongly associated .
+Increased body mass index was not associated with LVI .
+46.8 % of the patients were morbidly obese .
+625 patients -LRB- 46.7 % -RRB- were < 60 years at diagnosis with a median BMI of 36.31 -LRB- range = 19.7-69 .8 -RRB- kg/m -LRB- 2 -RRB- while the median BMI for women 61 years or older was 32.2 -LRB- 15.7-71 .3 -RRB- kg/m -LRB- 2 -RRB- -LRB- p = 0.002 -RRB- .
+AIM : Obesity is classically linked to type I endometrial cancer -LRB- EC -RRB- .
+All patients underwent hysterectomy , and salpingoophrectomy with or without lymph node dissection .
+CONCLUSION : Increased BMI was significantly associated with lower tumor grade and younger patient age at diagnosis .
+In univariate analyses , high BMI was not significantly associated with LVI .
+Lymphovascular invasion -LRB- LVI -RRB- is a well-known adverse prognostic factor in EC .
+PATIENTS AND METHODS : For this Institutional Review Board -LRB- IRB -RRB- - approved study , we reviewed our prospectively-maintained uterine cancer database of 1,950 patients with EC International Federation of Gynecology and Obstetrics -LRB- FIGO -RRB- stages I-IV who underwent hysterectomy from 1/1988 through 12/2011 .
+RESULTS : A total of 1,341 patients with uterine endometrioid carcinoma were identified .
+The higher prevalence of obesity in young women with EC is alarming .
+The median BMI for study patients was 34.3 -LRB- range = 15.7-71 .3 -RRB- kg/m -LRB- 2 -RRB- .
+The objective of the present study was to investigate the association between obesity and LVI in women with EC .
+In a model that controlled for multiple breast cancer risk factors including body mass index -LRB- BMI -RRB- , estradiol , and insulin , CRP level was positively associated with breast cancer risk among HT nonusers -LRB- hazard ratio for high vs low CRP levels = 1.67 , 95 % confidence interval = 1.04 to 2.68 , P trend = .029 -RRB- .
+RESULTS : The association between plasma CRP levels and breast cancer risk was dependent on hormone therapy -LRB- HT -RRB- use at baseline -LRB- P interaction = .003 -RRB- .
+All statistical tests were two-sided .
+BACKGROUND : Adipokines and inflammation may provide a mechanistic link between obesity and postmenopausal breast cancer , yet epidemiologic data on their associations with breast cancer risk are limited .
+CONCLUSION : These data indicate that CRP is a risk factor for postmenopausal breast cancer among HT nonusers .
+Data were analyzed by multivariable Cox modeling that included established breast cancer risk factors and previously measured estradiol and insulin levels .
+Following inclusion of CRP , insulin , and estradiol in a multivariable model , the association of BMI with breast cancer was attenuated by 115 % .
+Inflammatory mediators , together with insulin and estrogen , may play a role in the obesity-breast cancer relation .
+METHODS : In a case-cohort analysis nested within the Women 's Health Initiative Observational Study , a prospective cohort of postmenopausal women , baseline plasma samples from 875 incident breast cancer case patients and 839 subcohort participants were tested for levels of seven adipokines , namely leptin , adiponectin , resistin , interleukin-6 , tumor necrosis factor-α , hepatocyte growth factor , and plasminogen activator inhibitor-1 , and for C-reactive protein -LRB- CRP -RRB- , an inflammatory marker .
+None of the other adipokines were statistically significantly associated with breast cancer risk .
+however , the relationship between a biomarker of n-3 status - the Omega-3 Index - and liver fat is yet to be elucidated .
+The addition of the novel erythrocyte fatty acid variable -LRB- Omega-3 Index -RRB- to the model only accounted for a further 3 % of the variance -LRB- P = 0 · 049 -RRB- .
+A total of eighty overweight adults -LRB- fifty-six men -RRB- completed the anthropometric and biochemical measurements , including the Omega-3 Index , and underwent proton magnetic resonance spectroscopy assessment of liver fat .
+Bivariate correlations and multiple regression analyses were performed with reference to prediction of liver fat percentage .
+In conclusion , the Omega-3 Index was associated with liver fat concentration but did not improve the overall capacity of demographic , anthropometric and blood markers to predict NAFLD .
+Low n-3 PUFA intake has been associated with the presence of NAFLD .
+Non-alcoholic fatty liver disease -LRB- NAFLD -RRB- is an independent predictor of CVD in otherwise healthy individuals .
+Regression analysis found that simple anthropometric and demographic variables -LRB- waist , age -RRB- accounted for 31 % of the variance in liver fat and the addition of traditional cardiometabolic blood markers -LRB- TAG , HDL , hsCRP and ALT -RRB- increased the predictive power to 43 % .
+The mean Omega-3 Index was high in both NAFLD -LRB- intrahepatic lipid concentration > = 5 · 5 % -RRB- and non-NAFLD groups .
+The Omega-3 Index , BMI , waist circumference , glucose , insulin , TAG , high-sensitive C-reactive protein -LRB- hsCRP -RRB- and alanine aminotransferase -LRB- ALT -RRB- were positively correlated , and HDL and erythrocyte n-6 : n-3 ratio negatively correlated with liver fat concentration .
+CONCLUSION : Although obesity had no effect on recurrence pattern of early breast cancer patients , obese early breast cancer patients had shorter OS compared to their normal-weight counterparts .
+During follow-up , 469 -LRB- 17.1 % -RRB- patients developed recurrence and/or metastasis .
+In obese patients , disease free survival -LRB- DFS -RRB- was shorter compared to normal weighted patients , but the difference was not significant .
+In the whole patient group no relation between metastatic sites and BMI groups was noticed .
+METHODS : This retrospective cross-sectional study analyzed the data of 2731 early stage breast cancer patients .
+Obese and overweighted patients had significantly shorter overall survival -LRB- OS -RRB- compared to the normal-weight group -LRB- p = 0.003 -RRB- .
+Of 2455 total patients , 853 -LRB- 34.6 % -RRB- were classified as having normal weight , 898 -LRB- 36.2 % -RRB- were overweighted and 704 -LRB- 29.2 % -RRB- were obese .
+Patients were classified into three BMI categories : normal body weight , overweight , and obese .
+Patients who had metastatic disease at the time of diagnosis and with unknown BMI values were excluded from study -LRB- N = 276 -RRB- .
+PURPOSE : Obesity is a well known risk factor for breast cancer recurrence and poor prognosis .
+RESULTS : The median patient age was 48 years -LRB- range 18-92 -RRB- .
+The association between first relapse site of early breast cancer patients and BMI categories were evaluated .
+The first primary metastatic sites were also not associated with BMI groups in pre and postmenopausal subpopulations .
+The median follow up time was 40 months -LRB- range 1-284 -RRB- .
+The recurrent/metastatic sites of patients were grouped in 8 categories : local , contralateral , lymph node , bone , lung , liver , brain and others .
+There was no significant difference between site-specific DFS in relation to BMI categorization .
+We studied the effect of body mass index -LRB- BMI -RRB- on recurrence pattern in early breast cancer patients .
+third , as modulators of energy extraction from , and metabolic utilization of ingested food .
+An alteration of the normal microbiota increases predisposition of the host to diseases through these four mechanisms .
+and lastly , as modulators of the immune system .
+Recent studies have revealed that normal microbiota interacts with the host through four mechanisms : .
+second , as modulators of the permeability of host mucosa .
+the normal microbiome acts as a barrier against pathogens .
+Some risk factors are age , gender and race , genetic susceptibility , dietary factors , fever , chronic pancreatitis , diabetes and physical inactivity .
+Even though in recent years progress has been made in defining the morphological and key genetic changes , it is still unclear which factors trigger its occurrence .
+Its incidence is approximately equal to the mortality rate .
+Pancreatic cancer is an aggressive tumor with a very poor prognosis , lack of early diagnostic symptoms and highly resistant to therapy .
+Research based on adipokines and their role in obesity and the occurrence of pancreatic cancer are the potential for a possible future therapeutic interventions .
+Studies have shown that an increase in BMI consequently leads to an increased risk of malignancies , including pancreatic cancer .

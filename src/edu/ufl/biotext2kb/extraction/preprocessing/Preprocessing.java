@@ -38,7 +38,6 @@ public class Preprocessing extends AbstractModule {
             String sentenceText = sentence.get(CoreAnnotations.TextAnnotation.class).toLowerCase();
             //LOG.info(sentenceText);
             sentencesTextBuilder.add(sentenceText);
-
         }
 
         return sentencesTextBuilder.build();

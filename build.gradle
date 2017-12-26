@@ -24,7 +24,6 @@ repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
-    mavenCentral()
 }
 
 // Add src-extra build target
@@ -46,16 +45,18 @@ dependencies {
     compile 'ch.qos.logback:logback-classic:1.2.3'
     compile 'commons-cli:commons-cli:1.4'
     compile 'com.squareup.okhttp3:okhttp:3.9.0'
-    compile 'joinery:joinery-dataframe:1.8'
-    compile group: 'org.apache.poi', name: 'poi', version: '3.8'
+
 
     compile 'edu.stanford.nlp:stanford-corenlp:3.7.0'
 
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
     testCompile 'org.easymock:easymock:3.5'
+
+    // https://mvnrepository.com/artifact/commons-io/commons-io
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+
 }
 
 // Define the main class for the application
 mainClassName = 'edu.ufl.biotext2kb.App'
-

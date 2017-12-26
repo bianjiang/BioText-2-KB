@@ -1,7 +1,7 @@
 package edu.ufl.biotext2kb.pubmed;
 
 import com.google.inject.Inject;
-import edu.ufl.biotext2kb.GuiceJUnit4Runner;
+import edu.ufl.biotext2kb.utils.GuiceJUnit4Runner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
