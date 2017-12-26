@@ -6,9 +6,7 @@ import com.google.inject.AbstractModule;
 import edu.ufl.biotext2kb.utils.BioText2KBUtils;
 import edu.ufl.biotext2kb.utils.dictionary.BioText2KBEntityAndPredicateDict;
 import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
-import java.util.*;
 
 /**
  * This class is designed for extraction of information (entities and predicates) from preprocessed sentences
@@ -18,18 +16,6 @@ import java.util.*;
 public class ExtractEntityAndPredicate extends AbstractModule {
     private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(ExtractEntityAndPredicate.class);
     private ImmutableSet<BioText2KBEntityAndPredicateDict> entityPredicateDict;
-    private String sent;
-
-    //TODO replace the stop-words below with  with dynamic detection implementation
-    //*********************************************************************************************************************************************
-    public static HashSet<String> stop_words_entities_ = new HashSet<>(Arrays.asList("normal", "intake", "intakes", "known",
-            "preventing", "has", "have", "influences", "influence", "identified", "decreases", "associated", "associated with", "not", "acts", "act",
-            "decrease", "high", "low", "lower", "higher", "other", "on", "affect", "affects", "i", "ii", "iii", "is", "a", "46", "24", "use", "uses"
-            , "targeting", "or", "25", "be", "part", "parts", "pre", "light", "novel", "none", "all", "total", "with", "without", "reported", "half", "benefits", "benefit", "changes", "change",
-            "new", "be", "are", "as", "at", "and", "this", "well", "may", "increase", "share", "related", "high", "associated", "links", "play", "plays", "help", "helps"));
-    public static HashSet<String> stop_words_predicates_ = new HashSet<>(Arrays.asList("under", "now", "well", "while", "ai", "ua", "'s", "-"));
-    //*********************************************************************************************************************************************
-
 
     public ExtractEntityAndPredicate() throws IOException {
         entityPredicateDict = BioText2KBUtils.readEntityAndPredicateCSV2DF("data/dictionary.csv", 30.0);

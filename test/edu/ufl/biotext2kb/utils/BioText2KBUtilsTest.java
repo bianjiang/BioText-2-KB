@@ -22,9 +22,9 @@ public class BioText2KBUtilsTest {
 
         /*
             the test file has 16 line with two of them are the same
-            this assert is aimed to test if the code remove the redundancy
+            this assert is aimed to test if the code remove the redundancy and stop words
          */
-        Assert.assertEquals(s.size(), 15);
+        Assert.assertEquals(15, s.size());
 
         // these asserts are aimed to test if the order is correct
         List<BioText2KBEntityAndPredicateDict> al = s.asList();
