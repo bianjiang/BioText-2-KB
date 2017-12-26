@@ -1,4 +1,4 @@
-package edu.ufl.biotext2kb.utils;
+package edu.ufl.biotext2kb.utils.dictionary;
 
 import java.io.Serializable;
 import java.util.Objects;
