@@ -14,7 +14,8 @@ public class BioText2KBUtilsTest {
 
     @Test
     public void testReadEntityAndPredicateCSV2DF() throws IOException {
-        ImmutableSet<BioText2KBEntityAndPredicateDict> s = BioText2KBUtils.readEntityAndPredicateCSV2DF("data/samplefortestdict.csv");
+        ImmutableSet<BioText2KBEntityAndPredicateDict> s = BioText2KBUtils.
+                readEntityAndPredicateCSV2DF("data/samplefortestdict.csv", 0.0);
         for(BioText2KBEntityAndPredicateDict each: s){
             LOG.info(each.toString());
         }
@@ -29,8 +30,8 @@ public class BioText2KBUtilsTest {
         List<BioText2KBEntityAndPredicateDict> al = s.asList();
         Assert.assertEquals(al.get(0).getInstance(), "risk of breast cancer");
         Assert.assertTrue(al.get(1).getWeight() == 3136.4357);
-        Assert.assertTrue(al.get(5).isInUMLS());
-        Assert.assertFalse(al.get(2).isEntity());
+        Assert.assertEquals(al.get(5).isInUMLS(), 1);
+        Assert.assertEquals(al.get(2).isEntity(), 0);
         Assert.assertEquals(al.get(al.size()-1).getInstance(), "hcc");
     }
 }

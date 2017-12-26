@@ -2,16 +2,13 @@ package edu.ufl.biotext2kb.extraction.extractentityandpredicate;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.ImmutableSortedSet;
 import com.google.inject.AbstractModule;
 import edu.ufl.biotext2kb.utils.BioText2KBUtils;
+import edu.ufl.biotext2kb.utils.dictionary.BioText2KBEntityAndPredicateDict;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-
 
 /**
  * This class is designed for extraction of information (entities and predicates) from preprocessed sentences
@@ -20,8 +17,7 @@ import java.util.*;
  */
 public class ExtractEntityAndPredicate extends AbstractModule {
     private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(ExtractEntityAndPredicate.class);
-
-    private String entityPredicateDictFile;
+    private ImmutableSet<BioText2KBEntityAndPredicateDict> entityPredicateDict;
     private String sent;
 
     //TODO replace the stop-words below with  with dynamic detection implementation
@@ -35,10 +31,10 @@ public class ExtractEntityAndPredicate extends AbstractModule {
     //*********************************************************************************************************************************************
 
 
-    public ExtractEntityAndPredicate() {
+    public ExtractEntityAndPredicate() throws IOException {
+        entityPredicateDict = BioText2KBUtils.readEntityAndPredicateCSV2DF("data/dictionary.csv", 30.0);
         LOG.info("The entity and predicate dictionary is loaded.");
     }
-
 
     /**
      * The function will scan every sentence from the input and extract entities and predicates in each of them based on pre-defined dictionaries
@@ -46,117 +42,92 @@ public class ExtractEntityAndPredicate extends AbstractModule {
      * The key is the original sentence
      * The value is a hashmap with keys as 'entities' and 'predicates' and lists of instances as values
      * A example of returned map showed as follow in json format:
-     * {
-     * "I want to eat apple, you hates oranges":
-     * {
-     * entities: (I, you, apple, oranges),
-     * predicates: (eat, hates)
-     * }
-     * }
+     * ____{
+     * ______"I want to eat apple, you hates oranges":
+     * ________{
+     * __________entities: (I, you, apple, oranges),
+     * __________predicates: (eat, hates)
+     * ________},
+     * ______"I want to take a bite of banana, you take care of a cat":
+     * ________{
+     * __________entities: (I, you, banana, cat),
+     * __________predicates: (take a bite of, take care of)
+     * ________},
+     * ________....
+     * ____}
      *
      * @param sents a set of sentences obtained from abstracts of PreMed publications
      * @return a Immutable map with entities-predicates pairs extracted from each sentences
      */
     public ImmutableMap<String, ImmutableMap<String, ImmutableSet<String>>> extractEntitiesPredicates(ImmutableSet<String> sents) {
-
         ImmutableMap.Builder<String, ImmutableMap<String, ImmutableSet<String>>> entityPredicatePairs = ImmutableMap.builder();
 
         for (String eachSent : sents) {
-            //TODO why there is a replace function here? should it be in the preprocess?
-            eachSent = " " + eachSent.replace(" '", "'") + " ";
-            this.sent = eachSent;
+            ImmutableMap.Builder<String,  ImmutableSet<String>> extractedTerms = ImmutableMap.builder();
 
-            ImmutableMap.Builder<String, ImmutableSet<String>> entityAndPredicateInOneSent = ImmutableMap.builder();
+            //extract entities
+            ReturnTwoThings resEntity = matchEntityPredicateInSentence(eachSent, 1);
+            eachSent = resEntity.getModifiedSentence();
+            extractedTerms.put("entitis", resEntity.getMatchedTerms());
 
-            //extract entities from the current sentence
-            //TODO remember to extract entity first then predicate so we need to loop 2 twice consecutive with each found word been removed
-            entityAndPredicateInOneSent.put("entities", matchEntityPredicateInSentences(this.sent, true));
+            //extract predicates
+            ReturnTwoThings resPredicate = matchEntityPredicateInSentence(eachSent, 0);
+            extractedTerms.put("predicates", resEntity.getMatchedTerms());
 
             //add the sentence (K) with entities and predicates (V) in it to a map
-            entityPredicatePairs.put(eachSent, entityAndPredicateInOneSent.build());
+            entityPredicatePairs.put(eachSent, extractedTerms.build());
         }
 
         return entityPredicatePairs.build();
     }
 
-
     /**
-     * @param line     each sentence from input
-     * @param isEntity if true return a list of all entities inside the sentence else return a list of all predicates in the sentence
-     * @return a list of instances that in the sentence and also matched in the entity or predicate dictionary
+     * This function will match the terms in the sentence with the terms in the dictionary and extract them
+     * @param line The input sentence in which we need to extract the entities and predicates
+     * @param isEntity if this equals to 1, we perform Entity extraction; if this equals to 0, we perform predicate extraction (only 0 and 1 are allowed)
+     * @return The function return a object which has two fields. One is extracted terms and the other is updated sentences (remove the terms extracted)
      */
-    private ImmutableSet<String> matchEntityPredicateInSentences(String line, boolean isEntity) {
-        ImmutableSortedSet<String> dict = null;
+    private ReturnTwoThings matchEntityPredicateInSentence(String line, int isEntity) {
+        ImmutableSet.Builder<String> terms = ImmutableSet.builder();
 
-        //match instances from the dict in the sentence, try matching the longest one first then shorter one.
-        ImmutableSet.Builder<String> instances = ImmutableSet.builder();
-        for (String inDict : dict) {
-            String target = " " + inDict + " ";
-            if (line.contains(target)) {
-                line = line.replace(target, " ");
-                instances.add(inDict);
-            }
-        }
+        if(!line.startsWith(" ") || !line.endsWith(" ")) { line = " " + line + " "; }
 
-        return instances.build();
-    }
-
-
-    @Deprecated
-    /**
-     * the function aims to read-in the predefined entities and predicates to help extract these from the sentences generated from pre-processing
-     * the function is deprecated due to the sorted function is insufficient to fulfill the requirement, use BioText2KBUtils.loadCsv2DataFrame
-     *
-     * @param fileName entity or predicate pre-extracted dictionary
-     * @return a set of entities or predicates
-     */
-    private ImmutableSortedSet<String> loadDictionary(String fileName, HashSet<String> stopWords) {
-        //sort all entities or predicates based on their length
-        SortedSet<String> entityOrPredicateDictBuilder = new TreeSet<>(new Comparator<String>() {
-            @Override
-            public int compare(String s1, String s2) {
-                if (s1.equals(s2)) return 0;
-                //use word length to sort
-                if (s1.split(" ").length > s2.split(" ").length) return -1;
-                else return 1;
-            }
-        });
-
-        BufferedReader br = null;
-        String line;
-        String word;
-
-        try {
-            br = new BufferedReader(new FileReader(fileName));
-
-            while ((line = br.readLine()) != null) {
-                //the first field in the read-in csv file is entity or predicate
-                word = line.split(",")[0];
-                //remove the entity or predicate word in stop words list since we do not want to include them
-                if (!stopWords.contains(word)) {
-                    entityOrPredicateDictBuilder.add(word);
+        for(BioText2KBEntityAndPredicateDict each: entityPredicateDict){
+            if(each.isEntity() == isEntity){
+                String target = " " + each + " ";
+                if(line.contains(target)){
+                    line = line.replace(target, " ");
+                    terms.add(target);
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            BioText2KBUtils.closeStream(br);
         }
 
-        //return as immutableSet
-        return ImmutableSortedSet.copyOfSorted(entityOrPredicateDictBuilder);
+        return new ReturnTwoThings(terms.build(), line);
     }
-
 
     @Override
     protected void configure() {
-        //create a property file for configuration such as where to load the dictionary
-        Properties prop = new Properties();
-        try {
-            prop.load(new FileReader("BioText2KB.properties"));
-            this.entityPredicateDictFile = prop.getProperty("entitypreidcateDict");
-        } catch (IOException ex) {
-            LOG.error(ex.getMessage());
+
+    }
+
+    /**
+     * This class is a helper class for returning two different types of values from a function
+     */
+    private class ReturnTwoThings {
+        private ImmutableSet<String> matchedTerms;
+        private String modifiedSentence;
+
+        private ReturnTwoThings(ImmutableSet<String> matchedTerms, String modifiedSentence){
+            this.matchedTerms = matchedTerms;
+            this.modifiedSentence = modifiedSentence;
+        }
+
+        private ImmutableSet<String> getMatchedTerms() {
+            return matchedTerms;
+        }
+
+        private String getModifiedSentence() {
+            return modifiedSentence;
         }
     }
 }

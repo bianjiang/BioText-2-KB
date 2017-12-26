@@ -5,7 +5,6 @@
 package edu.ufl.biotext2kb;
 
 import com.google.inject.Inject;
-import edu.ufl.biotext2kb.utils.GuiceJUnit4Runner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -23,7 +22,6 @@ public class BioText2KBMainTest {
 
     @Test
     public void testBioText2KBMainHasAStart() {
-
         assertNotNull("whatever", bioText2KBMain.start());
     }
 }

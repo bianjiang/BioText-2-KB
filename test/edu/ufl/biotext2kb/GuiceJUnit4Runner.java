@@ -1,4 +1,4 @@
-package edu.ufl.biotext2kb.utils;
+package edu.ufl.biotext2kb;
 
 import com.google.inject.Guice;
 import com.google.inject.Module;

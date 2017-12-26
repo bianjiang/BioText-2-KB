@@ -10,11 +10,11 @@ import java.util.Objects;
  */
 public class BioText2KBEntityAndPredicateDict implements Serializable{
     private final String instance;
-    private final boolean isInUMLS;
+    private final int isInUMLS;
     private final Double weight;
-    private final boolean isEntity;
+    private final int isEntity;
 
-    public BioText2KBEntityAndPredicateDict(String instance, boolean isInUMLS, Double weight, boolean isEntity){
+    public BioText2KBEntityAndPredicateDict(String instance, int isInUMLS, Double weight, int isEntity){
         this.instance = instance;
         this.isInUMLS = isInUMLS;
         this.weight = weight;
@@ -25,7 +25,7 @@ public class BioText2KBEntityAndPredicateDict implements Serializable{
         return instance;
     }
 
-    public boolean isInUMLS() {
+    public int isInUMLS() {
         return isInUMLS;
     }
 
@@ -33,7 +33,7 @@ public class BioText2KBEntityAndPredicateDict implements Serializable{
         return weight;
     }
 
-    public boolean isEntity() {
+    public int isEntity() {
         return isEntity;
     }
 

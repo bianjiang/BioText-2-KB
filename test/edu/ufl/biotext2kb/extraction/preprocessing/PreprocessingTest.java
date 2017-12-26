@@ -2,7 +2,7 @@ package edu.ufl.biotext2kb.extraction.preprocessing;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.inject.Inject;
-import edu.ufl.biotext2kb.utils.GuiceJUnit4Runner;
+import edu.ufl.biotext2kb.GuiceJUnit4Runner;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.junit.BeforeClass;
