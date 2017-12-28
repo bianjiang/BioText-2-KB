@@ -3,10 +3,13 @@ package edu.ufl.biotext2kb.extraction.extractentityandpredicate;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.inject.AbstractModule;
+import edu.ufl.biotext2kb.BioText2KB;
 import edu.ufl.biotext2kb.utils.BioText2KBUtils;
 import edu.ufl.biotext2kb.utils.dictionary.BioText2KBEntityAndPredicateDict;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * This class is designed for extraction of information (entities and predicates) from preprocessed sentences
@@ -16,9 +19,14 @@ import java.io.IOException;
 public class ExtractEntityAndPredicate extends AbstractModule {
     private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(ExtractEntityAndPredicate.class);
     private ImmutableSet<BioText2KBEntityAndPredicateDict> entityPredicateDict;
+    private final Double cutOff;
+    private final String encoding;
 
     public ExtractEntityAndPredicate() throws IOException {
-        entityPredicateDict = BioText2KBUtils.readEntityAndPredicateCSV2DF("data/dictionary.csv", 30.0);
+        cutOff = Double.valueOf(BioText2KBUtils.getBioTextProperties("cut-off"));
+        encoding = BioText2KBUtils.getBioTextProperties("encoding");
+        LOG.info("The project properties are loaded.");
+        entityPredicateDict = BioText2KBUtils.readEntityAndPredicateCSV2DF("data/dictionary.csv", cutOff, encoding);
         LOG.info("The entity and predicate dictionary is loaded.");
     }
 
@@ -58,7 +66,7 @@ public class ExtractEntityAndPredicate extends AbstractModule {
 
             //extract predicates
             ReturnTwoThings resPredicate = matchEntityPredicateInSentence(eachSent, 0);
-            extractedTerms.put("predicates", resEntity.getMatchedTerms());
+            extractedTerms.put("predicates", resPredicate.getMatchedTerms());
 
             //add the sentence (K) with entities and predicates (V) in it to a map
             entityPredicatePairs.put(eachSent, extractedTerms.build());
@@ -75,15 +83,16 @@ public class ExtractEntityAndPredicate extends AbstractModule {
      */
     private ReturnTwoThings matchEntityPredicateInSentence(String line, int isEntity) {
         ImmutableSet.Builder<String> terms = ImmutableSet.builder();
-
-        if(!line.startsWith(" ") || !line.endsWith(" ")) { line = " " + line + " "; }
-
+        //TODO check bug free using test cases (word boundary has problem to deal with alex-alex or alex'alex)
         for(BioText2KBEntityAndPredicateDict each: entityPredicateDict){
             if(each.isEntity() == isEntity){
-                String target = " " + each + " ";
-                if(line.contains(target)){
-                    line = line.replace(target, " ");
-                    terms.add(target);
+                String term = each.getInstance();
+                String target = "\\b" + term + "\\b";
+                Pattern p = Pattern.compile(target);
+                Matcher m = p.matcher(line);
+                if(m.find()){
+                    line = line.replace("\\b" + Pattern.quote(term) + "\\b", "");
+                    terms.add(term);
                 }
             }
         }

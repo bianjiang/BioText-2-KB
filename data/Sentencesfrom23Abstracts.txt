@@ -131,8 +131,7 @@ CONCLUSIONS: Our findings show IHF is associated with measures of insulin resist
 However, in clinical practice, IHF is assessed indirectly by pre-operative imaging [for example, chemical-shift magnetic resonance (CS-MR)].
 Larger studies are indicated to test whether a correction of imaging-derived IHF estimates is valid.
 METHODS: A reproducible method for quantification of D-IHF using 7 histology slides (inter- and intra-rater concordance: 0.97 and 0.98) was developed.
-MR-derived IHF correlated with D-IHF (rho: 0.626; p = 0.0001), but levels of agreement deviated in upper range values (CS-MR over-estimated IHF: regression versus zero, p = 0.009).
-RESULTS: The multivariate linear regression models showed that D-IHF was best predicted by HOMA-IR (Beta coefficient(per doubling): 2.410, 95% CI: 1.093, 5.313) and adiponectin (β(per doubling): 0.197, 95% CI: 0.058, 0.667), but not by anthropometrics.
+30 kg m RESULTS: The multivariate linear regression models showed that D-IHF was best predicted by HOMA-IR (Beta coefficient(per doubling): 2.410, 95% CI: 1.093, 5.313) and adiponectin (β(per doubling): 0.197, 95% CI: 0.058, 0.667), but not by anthropometrics.
 this could be adjusted for by a correction factor (CF: 0.7816).
 We estimated relative IHF using CS-MR and developed prediction models for IHF using a factor-clustered approach.
 We used the opportunity in patients undergoing liver resection to quantify IHF by digital histology (D-IHF) and relate this to CT-derived anthropometrics, insulin-related serum biomarkers, and IHF estimated by CS-MR.

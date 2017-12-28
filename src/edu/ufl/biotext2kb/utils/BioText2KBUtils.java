@@ -2,10 +2,13 @@ package edu.ufl.biotext2kb.utils;
 
 
 import com.google.common.collect.ImmutableSet;
+import com.google.inject.Inject;
+import edu.ufl.biotext2kb.extraction.preprocessing.Preprocessing;
 import edu.ufl.biotext2kb.utils.dictionary.BioText2KBEntityAndPredicateDict;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.LoggerFactory;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
@@ -15,6 +18,8 @@ import java.util.*;
  */
 public final class BioText2KBUtils {
     private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(BioText2KBUtils.class);
+    private static Preprocessing preprocessing = new Preprocessing();
+    private static Properties prop = new Properties();
 
     private BioText2KBUtils() {
 
@@ -39,15 +44,16 @@ public final class BioText2KBUtils {
      * @return An ImmutableSet of BioText2KBEntityAndPredicateDict objects
      * @throws IOException
      */
-    public static ImmutableSet<BioText2KBEntityAndPredicateDict> readEntityAndPredicateCSV2DF(String fileName, Double cutOff) throws IOException {
+    public static ImmutableSet<BioText2KBEntityAndPredicateDict> readEntityAndPredicateCSV2DF(String fileName, Double cutOff, String encoding) throws IOException {
         List<BioText2KBEntityAndPredicateDict> arr = new ArrayList<>();
-        Iterator<String> itr = FileUtils.readLines(new File(fileName), "utf-8").iterator();
+        Iterator<String> itr = FileUtils.readLines(new File(fileName), encoding).iterator();
         for (int i = 0; itr.hasNext(); i++) {
             String line = itr.next();
             if (i == 0) continue; //skip the title
             //LOG.info(line);
             String[] fields = line.split(",");
 
+            //TODO update the stopwords filter method
             if (!(Double.valueOf(fields[2]) <= cutOff && Integer.valueOf(fields[3]) == 1) &&
                     !(stop_words_entities_.contains(fields[0]) && Integer.valueOf(fields[3]) == 1) &&
                     !(stop_words_predicates_.contains(fields[0]) && Integer.valueOf(fields[3]) == 0)) {
@@ -82,4 +88,36 @@ public final class BioText2KBUtils {
 
         return ImmutableSet.copyOf(arr);
     }
+
+    /**
+     * This function is used to output the sentences after pre-processing step
+     * @param inputFileName The original file contains all the text for pre-processing
+     * @param outputFileName The file which stores all the text after pre-processing
+     * @param encoding An optional parameter, if not provide using utf-8 else using the provided coding method
+     * @throws IOException
+     */
+    public static void outputPreprocessedSenteces(String inputFileName, String outputFileName, String encoding) throws IOException {
+        LOG.info("Using " + encoding + " to encode all the text.");
+
+        Iterator<String> itr = FileUtils.readLines(new File(inputFileName), encoding).iterator();
+        StringBuilder testSampleText = new StringBuilder();
+
+        for (; itr.hasNext(); ) {
+            testSampleText.append(itr.next());
+            testSampleText.append("\n");
+        }
+
+        FileUtils.writeLines(
+                new File(outputFileName),
+                encoding,
+                Collections.unmodifiableList(preprocessing.sentenceSegmentation(testSampleText.toString()).asList()),
+                "\n");
+    }
+
+
+    public static String getBioTextProperties(String key) throws IOException{
+        prop.load(new FileReader("BioText2KB.properties"));
+        return prop.getProperty(key);
+    }
+
 }
