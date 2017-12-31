@@ -56,6 +56,9 @@ dependencies {
     // https://mvnrepository.com/artifact/commons-io/commons-io
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
 
+    // https://mvnrepository.com/artifact/com.github.racc/typesafeconfig-guice
+    compile group: 'com.github.racc', name: 'typesafeconfig-guice', version: '0.0.3'
+
 }
 
 // Define the main class for the application

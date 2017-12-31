@@ -13,16 +13,15 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 @RunWith(GuiceJUnit4Runner.class)
-public class BioText2KBUtilsTest {
-    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(BioText2KBUtilsTest.class);
+public class BioText2KBReadWriteUtilsTest {
+    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(BioText2KBReadWriteUtilsTest.class);
 
     @Test
     public void testReadEntityAndPredicateCSV2DF() throws IOException {
-        ImmutableSet<BioText2KBEntityAndPredicateDict> s = BioText2KBUtils.
+        ImmutableSet<BioText2KBEntityAndPredicateDict> s = BioText2KBReadWriteUtils.
                 readEntityAndPredicateCSV2DF("data/samplefortestdict.csv", 0.0, "utf-8");
         for(BioText2KBEntityAndPredicateDict each: s){
             LOG.info(each.toString());
@@ -44,8 +43,8 @@ public class BioText2KBUtilsTest {
     }
 
     @Test
-    public void testoutputPreprocessedSenteces() throws IOException {
-        BioText2KBUtils.outputPreprocessedSenteces("data/Sentencesfrom23Abstracts.txt", "data/testOutput.txt" , "utf-8");
+    public void testoutputPreprocessedSentences() throws IOException {
+        BioText2KBReadWriteUtils.outputPreprocessedSentences("data/Sentencesfrom23Abstracts.txt", "data/testOutput.txt" , "utf-8");
 
         Set<String> tests = new HashSet<>();
 
@@ -60,9 +59,6 @@ public class BioText2KBUtilsTest {
 
     @Test
     public void testGetProperties() throws IOException {
-        Assert.assertEquals("30.0", BioText2KBUtils.getBioTextProperties("cut-off"));
-        Assert.assertEquals("utf-8", BioText2KBUtils.getBioTextProperties("encoding"));
-        Assert.assertEquals("data/dictionary.csv", BioText2KBUtils.getBioTextProperties("dict"));
-        Assert.assertEquals(null, BioText2KBUtils.getBioTextProperties("alex"));
+
     }
 }

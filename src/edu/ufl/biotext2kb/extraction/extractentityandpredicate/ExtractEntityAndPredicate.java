@@ -1,10 +1,14 @@
 package edu.ufl.biotext2kb.extraction.extractentityandpredicate;
 
+import com.github.racc.tscg.TypesafeConfig;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.inject.AbstractModule;
-import edu.ufl.biotext2kb.BioText2KB;
-import edu.ufl.biotext2kb.utils.BioText2KBUtils;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
+import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
+import edu.ufl.biotext2kb.utils.BioText2KBReadWriteUtils;
 import edu.ufl.biotext2kb.utils.dictionary.BioText2KBEntityAndPredicateDict;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
@@ -19,14 +23,14 @@ import java.util.regex.Pattern;
 public class ExtractEntityAndPredicate extends AbstractModule {
     private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(ExtractEntityAndPredicate.class);
     private ImmutableSet<BioText2KBEntityAndPredicateDict> entityPredicateDict;
-    private final Double cutOff;
-    private final String encoding;
 
-    public ExtractEntityAndPredicate() throws IOException {
-        cutOff = Double.valueOf(BioText2KBUtils.getBioTextProperties("cut-off"));
-        encoding = BioText2KBUtils.getBioTextProperties("encoding");
+    @Inject
+    public ExtractEntityAndPredicate(@TypesafeConfig("dictionary_file.string") String dictFile,
+                                     @TypesafeConfig("stop_words_file.string") String stopWordsFile,
+                                     @TypesafeConfig("cut_off.double") Double cutOff,
+                                     @TypesafeConfig("encoding.string") String encoding) throws IOException {
         LOG.info("The project properties are loaded.");
-        entityPredicateDict = BioText2KBUtils.readEntityAndPredicateCSV2DF("data/dictionary.csv", cutOff, encoding);
+        entityPredicateDict = BioText2KBReadWriteUtils.readEntityAndPredicateCSV2DF(dictFile, stopWordsFile, cutOff, encoding);
         LOG.info("The entity and predicate dictionary is loaded.");
     }
 
@@ -83,21 +87,39 @@ public class ExtractEntityAndPredicate extends AbstractModule {
      */
     private ReturnTwoThings matchEntityPredicateInSentence(String line, int isEntity) {
         ImmutableSet.Builder<String> terms = ImmutableSet.builder();
-        //TODO check bug free using test cases (word boundary has problem to deal with alex-alex or alex'alex)
+        //TODO include stemming and lemmatization in term finding
         for(BioText2KBEntityAndPredicateDict each: entityPredicateDict){
             if(each.isEntity() == isEntity){
                 String term = each.getInstance();
-                String target = "\\b" + term + "\\b";
+                String target = createPatter(term);
                 Pattern p = Pattern.compile(target);
                 Matcher m = p.matcher(line);
                 if(m.find()){
-                    line = line.replace("\\b" + Pattern.quote(term) + "\\b", "");
+                    line = line.replace(term, "");
                     terms.add(term);
                 }
             }
         }
 
         return new ReturnTwoThings(terms.build(), line);
+    }
+
+    private String createPatter(String term) {
+        StringBuilder sb = new StringBuilder();
+        //the term is the first part of the sentence
+        sb.append("^");
+        sb.append(term);
+        sb.append("|");
+        //the term is in the middle of the sentence
+        sb.append(" ");
+        sb.append(term);
+        sb.append(" ");
+        //the term followed by a punctuation (ex. at the end of the sentence)
+        sb.append("|");
+        sb.append(term);
+        sb.append("\\p{Punct}");
+
+        return sb.toString();
     }
 
     @Override
