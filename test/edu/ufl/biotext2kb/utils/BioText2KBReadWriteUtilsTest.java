@@ -22,7 +22,7 @@ public class BioText2KBReadWriteUtilsTest {
     @Test
     public void testReadEntityAndPredicateCSV2DF() throws IOException {
         ImmutableSet<BioText2KBEntityAndPredicateDict> s = BioText2KBReadWriteUtils.
-                readEntityAndPredicateCSV2DF("data/samplefortestdict.csv", 0.0, "utf-8");
+                readEntityAndPredicateCSV2DF("data/samplefortestdict.csv", "data/stop_word_dict.csv", 0.0, "utf-8");
         for(BioText2KBEntityAndPredicateDict each: s){
             LOG.info(each.toString());
         }

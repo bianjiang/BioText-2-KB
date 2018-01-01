@@ -15,7 +15,7 @@ import java.util.*;
 
 
 /**
- * This class is used for dealing with common operations
+ * This class is used for dealing with common operations on file reading and writing
  */
 public final class BioText2KBReadWriteUtils {
     private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(BioText2KBReadWriteUtils.class);
@@ -73,9 +73,13 @@ public final class BioText2KBReadWriteUtils {
      */
     public static ImmutableSet<BioText2KBEntityAndPredicateDict> readEntityAndPredicateCSV2DF(String entityPredicateFileName, String stopWordsFile, Double cutOff, String encoding) throws IOException {
         List<BioText2KBEntityAndPredicateDict> arr = new ArrayList<>();
+
         //load the stop words list
+        //************************************
         //TODO not include in the code yet
         ImmutableSet<ImmutableList<String>> stopWordsDict = loadStopWords(stopWordsFile, encoding);
+        //************************************
+
         //load the entity and predicate dictionary file
         Iterator<String> itr = FileUtils.readLines(new File(entityPredicateFileName), encoding).iterator();
         for (int i = 0; itr.hasNext(); i++) {

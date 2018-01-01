@@ -5,9 +5,6 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
-import com.google.inject.name.Named;
-import com.typesafe.config.Config;
-import com.typesafe.config.ConfigFactory;
 import edu.ufl.biotext2kb.utils.BioText2KBReadWriteUtils;
 import edu.ufl.biotext2kb.utils.dictionary.BioText2KBEntityAndPredicateDict;
 import org.slf4j.LoggerFactory;
@@ -91,7 +88,7 @@ public class ExtractEntityAndPredicate extends AbstractModule {
         for(BioText2KBEntityAndPredicateDict each: entityPredicateDict){
             if(each.isEntity() == isEntity){
                 String term = each.getInstance();
-                String target = createPatter(term);
+                String target = createRegexPattern(term);
                 Pattern p = Pattern.compile(target);
                 Matcher m = p.matcher(line);
                 if(m.find()){
@@ -104,7 +101,7 @@ public class ExtractEntityAndPredicate extends AbstractModule {
         return new ReturnTwoThings(terms.build(), line);
     }
 
-    private String createPatter(String term) {
+    private String createRegexPattern(String term) {
         StringBuilder sb = new StringBuilder();
         //the term is the first part of the sentence
         sb.append("^");
